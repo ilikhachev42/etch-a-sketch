@@ -3,12 +3,34 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/styles.css">
-		<script src="index.js"></script>
+		<script src="index.js" defer></script>
 		<title>Etch-a-sketch</title>
 	</head>
 	<body>
-		<div id="grid" class="container">
-		</div>
+		<header id="heading" class="big-text">
+			<h1>Etch-a-sketch</h1>
+			<p>in Animal Crossing style</p>
+		</header>
+		<main id="main" class="main-container">
+				<div id="size" class="size-picker">
+					<div class="size-heading">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="grid-icon">
+							<path d="M15 3H4.984c-1.103 0-2 .897-2 2v14.016c0 1.103.897 2 2 2H19c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-4zm4 5h-3V5h3v3zM4.984 10h3v4.016h-3V10zm5 0H14v4.016H9.984V10zM16 10h3v4.016h-3V10zm-2-5v3H9.984V5H14zM7.984 5v3h-3V5h3zm-3 11.016h3v3h-3v-3zm5 3v-3H14v3H9.984zm6.016 0v-3h3.001v3H16z"></path>
+						</svg>
+						<p>Grid size</p>
+					</div>
+					<button id="size-16px" class="btn btn-size-one">16px</button>
+					<button id="size-32px" class="btn btn-size-two">32px</button>
+					<button id="size-64px" class="btn btn-size-three">64px</button>
+				</div>
+				<div id="grid" class="div-container">
+				</div>
+				<div id="color" class="color-picker">
+				</div>
+		</main>
 	</body>
 </html>
