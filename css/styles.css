@@ -11,7 +11,7 @@
 body {
 	width: 100%;
 	height: 100%;
-	background-color: var(--body-bg);
+	background: var(--body-bg) url("../images/nook.png") no-repeat 90% 100%;
 	font-family: 'Nunito';
 }
 
@@ -95,6 +95,23 @@ body {
 	color: var(--icon-color);
 }
 
+.color-picker {
+	width: 150px;
+	height: 150px;
+}
+
+.st0 {
+	fill: #ef9a96;
+}
+
+.st1 {
+	fill: var(--pink-bg);
+}
+
+.st2 {
+
+}
+
 .div-container {
 	display: flex;
 	flex-flow: row wrap;
@@ -111,7 +128,7 @@ body {
 	border-radius: 0 0 8px 0;
 }
 
-.color-picker {
+.empty-container {
 	width: 200px;
 	height: 200px;
 }
