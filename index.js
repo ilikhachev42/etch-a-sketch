@@ -1,7 +1,6 @@
 const grid = document.getElementById('grid');
 grid.innerHTML = '<div class="pixel"></div>'.repeat(256);
 const pixel = document.getElementsByClassName('pixel');
-console.log(pixel)
 
 const setColor = function(event) {
 	event.target.setAttribute('class', 'pixel new');
@@ -36,7 +35,12 @@ grid.addEventListener('click', hoverMode);
 let buttonValue = 0;
 
 const addDiv = function(num) {
-	grid.innerHTML = '<div class="pixel"></div>'.repeat(num);
+	let elem;
+	for (let i = 0; i < num; i++) {
+		elem = document.createElement('div');
+		elem.setAttribute('class', 'pixel');
+		grid.append(elem);
+	}
 }
 
 const setGridSize = function(event) {
