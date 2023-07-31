@@ -1,6 +1,24 @@
 const grid = document.getElementById('grid');
-grid.innerHTML = '<div class="pixel"></div>'.repeat(256);
+
+//Make gridOnLoad() onload.
+
+const gridOnLoad = function() {
+	const defaultGrid = 256;
+
+	for (let i = 0; i < defaultGrid; i++) {
+		const newPixel = document.createElement('div');
+		newPixel.setAttribute('class', 'pixel');
+		grid.appendChild(newPixel);
+	}
+}
+
 const pixel = document.getElementsByClassName('pixel');
+
+/*
+
+Part below responsible for entering 'hover mode' and changing a color of pixels on the grid.
+
+*/
 
 const setColor = function(event) {
 	event.target.setAttribute('class', 'pixel new');
@@ -9,45 +27,50 @@ const setColor = function(event) {
 let isHoverOn = false;
 
 function hoverMode(event) {
-		isHoverOn = !isHoverOn;
+	isHoverOn = !isHoverOn;
 
-    if (isHoverOn) {
-      for (let i = 0; i < pixel.length; i++) {
-        if (event.target !== grid) {
-          pixel[i].addEventListener('mouseover', setColor)
-        }
+  if (isHoverOn) {
+    for (let i = 0; i < pixel.length; i++) {
+      if (event.target !== grid) {
+        pixel[i].addEventListener('mouseover', setColor)
       }
     }
+  }
 
-    if (!isHoverOn) {
-      for (let i = 0; i < pixel.length; i++) {
-        if(event.target !== grid) {
-          pixel[i].removeEventListener('mouseover', setColor)
-        }
+  if (!isHoverOn) {
+    for (let i = 0; i < pixel.length; i++) {
+      if(event.target !== grid) {
+        pixel[i].removeEventListener('mouseover', setColor)
       }
     }
+  }
 }
 
-grid.addEventListener('click', hoverMode);
+addEventListener('click', hoverMode);
 
-//Resizing grid
+//Resizing grid. Displaying pixels on a grid is incorrect yet. I will fix this problem after resizing function will work correct.
 
-let buttonValue = 0;
+let btnValue;
 
-const addDiv = function(num) {
-	let elem;
-	for (let i = 0; i < num; i++) {
-		elem = document.createElement('div');
-		elem.setAttribute('class', 'pixel');
-		grid.append(elem);
+const addDiv = function(event) {
+	btnValue = Math.pow(event.target.value, 2);
+
+	if (btnValue > pixel.length) {
+		for (let i = 0; i < btnValue; i++) {
+			const newPixel = document.createElement('div');
+			newPixel.setAttribute('class', 'pixel');
+			grid.appendChild(newPixel);
+		}
+	} else if (btnValue < pixel.length) {
+		//Figure out how to remove remaining divs.
+
+		for (let i = 0; i < (pixel.length - btnValue); i++) {
+			grid.lastChild.remove();
+		}
+	} else {
+		return btnValue;
 	}
+	
 }
 
-const setGridSize = function(event) {
-	if (event.target.hasAttribute('value')) {
-		buttonValue = event.target.value;
-		addDiv(buttonValue * buttonValue);
-	}
-}
-
-addEventListener('click', setGridSize);
+addEventListener('click', addDiv);
