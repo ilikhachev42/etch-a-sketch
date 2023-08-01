@@ -1,8 +1,8 @@
 const grid = document.getElementById('grid');
 
-//Make gridOnLoad() onload.
+//Make default grid size when page is loaded.
 
-const gridOnLoad = function() {
+window.onload = function() {
 	const defaultGrid = 256;
 
 	for (let i = 0; i < defaultGrid; i++) {
@@ -14,11 +14,7 @@ const gridOnLoad = function() {
 
 const pixel = document.getElementsByClassName('pixel');
 
-/*
-
-Part below responsible for entering 'hover mode' and changing a color of pixels on the grid.
-
-*/
+//Part below responsible for entering 'hover mode' and changing a color of pixels on the grid.
 
 const setColor = function(event) {
 	event.target.setAttribute('class', 'pixel new');
@@ -26,7 +22,7 @@ const setColor = function(event) {
 
 let isHoverOn = false;
 
-function hoverMode(event) {
+const hoverMode = function(event) {
 	isHoverOn = !isHoverOn;
 
   if (isHoverOn) {
@@ -48,7 +44,7 @@ function hoverMode(event) {
 
 addEventListener('click', hoverMode);
 
-//Resizing grid. Displaying pixels on a grid is incorrect yet. I will fix this problem after resizing function will work correct.
+//Resizing grid. Displaying pixels on a grid is incorrect yet. I will fix this issue after resizing function will work correct.
 
 let btnValue;
 
@@ -62,6 +58,7 @@ const addDiv = function(event) {
 			grid.appendChild(newPixel);
 		}
 	} else if (btnValue < pixel.length) {
+
 		//Figure out how to remove remaining divs.
 
 		for (let i = 0; i < (pixel.length - btnValue); i++) {
