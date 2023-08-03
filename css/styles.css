@@ -95,9 +95,8 @@ body {
 	color: var(--icon-color);
 }
 
-.color-picker {
-	width: 150px;
-	height: 150px;
+.palette-icon {
+	width: 100px;
 }
 
 .st0 {
@@ -105,17 +104,20 @@ body {
 }
 
 .st1 {
-	fill: var(--pink-bg);
+	fill: var(--icon-color);
 }
 
 .st2 {
+	fill: white;
+}
 
+input[type="color"] {
+	display: none;
 }
 
 .div-container {
 	display: flex;
 	flex-flow: row wrap;
-	/*Add calc to width and height when resizing grid will be available*/
 	width: 656px;
 	height: 656px;
 	padding: 72px;
@@ -137,7 +139,8 @@ body {
 	width: 32px;
 	height: 32px;
 	background-color: white;
-	border: 1px solid rgb(170, 170, 170);
+	border-right: 1px solid rgb(170, 170, 170);
+	border-bottom: 1px solid rgb(170, 170, 170);
 }
 
 .new {
