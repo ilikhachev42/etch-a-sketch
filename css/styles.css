@@ -99,16 +99,16 @@ body {
 	width: 100px;
 }
 
-.st0 {
+.palette-shadow {
 	fill: #ef9a96;
 }
 
-.st1 {
+.palette-body {
 	fill: var(--icon-color);
 }
 
-.st2 {
-	fill: white;
+.palette-ellipse {
+	fill: #000000;
 }
 
 input[type="color"] {
@@ -144,5 +144,5 @@ input[type="color"] {
 }
 
 .new {
-	background-color: black;
+	background-color: #000000;
 }
