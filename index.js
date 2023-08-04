@@ -1,14 +1,29 @@
 const grid = document.getElementById('grid');
 const allPixels = document.getElementsByClassName('pixel');
+const fancyPixels = document.querySelectorAll('.new');
 const sizeButtons = document.querySelectorAll('.btn');
+const colorPicker = document.querySelector('#color-picker');
+const paletteEllipse = document.querySelector('.palette-ellipse');
+const defaultColor = '#000000';
 const defaultSizeValue = 256;
 const gridHeight = getComputedStyle(grid).height;
 const gridPaddingTop = getComputedStyle(grid).paddingTop;
 const gridPaddingBottom = getComputedStyle(grid).paddingBottom;
 
 //Code below responsible for drawing.
+
+//Save current picked color in currentColor variable.
+let currentColor = defaultColor;
+
+//After color is picked, change color of the ellipse inside an icon.
+colorPicker.addEventListener('input', (event) => {
+	currentColor = event.target.value;
+	paletteEllipse.style.fill = currentColor;
+});
+
+//Use a color saved in currentColor when function setColor is called.
 const setColor = function(event) {
-	event.target.setAttribute('class', 'pixel new');
+	event.target.style.backgroundColor = currentColor;
 };
 
 let isHoverOn = false;
